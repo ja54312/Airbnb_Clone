@@ -9,6 +9,7 @@ import { signOut } from "next-auth/react";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useRentModal from "@/app/hooks/useRentModal";
+import { useRouter } from "next/navigation";
 //Icons
 import { AiOutlineMenu } from "react-icons/ai";
 //Models
@@ -18,6 +19,7 @@ interface UserMenuProps {
 }
 
 const UserMenu:React.FC<UserMenuProps> = ({ currentUser }) => {
+  const router = useRouter();
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
   const rentModal = useRentModal();
@@ -98,19 +100,19 @@ const UserMenu:React.FC<UserMenuProps> = ({ currentUser }) => {
               <>
                 <MenuItem 
                   label="My trips" 
-                  onClick={()=>{}}
+                  onClick={()=>router.push('/trips')}
                 />
                 <MenuItem 
                   label="My favorites" 
-                  onClick={()=>{}}
+                  onClick={()=>router.push('/favorites')}
                 />
                 <MenuItem 
                   label="My reservations" 
-                  onClick={()=>{}}
+                  onClick={()=>router.push('/reservations')}
                 />
                 <MenuItem 
                   label="My properties" 
-                  onClick={()=>{}}
+                  onClick={()=>router.push('/properties')}
                 />
                 <MenuItem 
                   label="Airbnb your home" 
