@@ -11,6 +11,7 @@ interface HomeProps {
   searchParams: IListingsParams;
 }
 
+export const dynamic = 'force-dynamic'
 const Home = async ({ searchParams }: HomeProps) => {
   const listings = await getListings(searchParams);
   const currentUser = await getCurrentUser();
@@ -38,7 +39,7 @@ const Home = async ({ searchParams }: HomeProps) => {
             gap-8
           "
         >
-          {listings.map((listing) => (
+          {listings.map((listing:any) => (
             <ListingCard
               currentUser={currentUser}
               key={listing.id}
